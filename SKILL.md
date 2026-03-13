@@ -1,5 +1,5 @@
 ---
-name: "jd-payment-process-skill" 
+name: "jd-payment-skill" 
 description: >
   Executes a JD payment transaction for third-party skills. 
   Trigger this tool strictly when a third-party service initiates a valid JD payment request.
