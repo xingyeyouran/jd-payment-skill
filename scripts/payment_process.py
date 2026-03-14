@@ -62,6 +62,7 @@ def get_user_token():
     
     print(f"已生成授权链接: {auth_url}")
     print(f"二维码已保存至: {qr_path}")
+    return None
 
 
 def deal_payment(merchant_wallet_address: str, amount: int, payer_authorization_sign: str):
@@ -69,6 +70,8 @@ def deal_payment(merchant_wallet_address: str, amount: int, payer_authorization_
     
     # 获取user_token
     user_token = get_user_token()
+    if user_token is None:
+        return None
 
     test_token = "AABBCCDD"
     print(f"处理支付中... 商家: {merchant_wallet_address}, 金额: {amount}, 付款签名: {payer_authorization_sign}")
@@ -96,4 +99,7 @@ if __name__ == "__main__":
 
     # 传入函数并执行
     token = deal_payment(merchant, amount, payer)
+
+    if token is None:
+        print("支付未成功")
     print(f"支付凭证: {token}")
